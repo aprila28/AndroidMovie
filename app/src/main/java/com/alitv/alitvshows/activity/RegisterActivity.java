@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -59,6 +60,10 @@ public class RegisterActivity extends AppCompatActivity {
                         RegisterResponseModel registerResponseModel = response.body();
                         if (registerResponseModel.getStatus().equals("success")) {
                             Toast.makeText(RegisterActivity.this, "Success Register" + name, Toast.LENGTH_SHORT).show();
+                            final Handler handler = new Handler();
+                            handler.postDelayed(()->{
+                                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                            }, 2000);
                         } else {
                             Toast.makeText(RegisterActivity.this, "Failed to register", Toast.LENGTH_SHORT).show();
                         }

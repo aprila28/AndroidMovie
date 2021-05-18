@@ -13,9 +13,9 @@ public interface ApiInterface {
             @Path("category") String category,
             @Query("api_key") String api_key,
             @Query("language") String language,
-            @Query("age") int page
+            @Query("page") int page
     );
-    @GET ("/3/search/movie}")
+    @GET ("/3/search/movie")
     Call<Response> getQuery(
             @Query("api_key") String api_key,
             @Query("language") String language,
